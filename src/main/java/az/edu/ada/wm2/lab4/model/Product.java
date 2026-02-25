@@ -1,5 +1,7 @@
 package az.edu.ada.wm2.lab4.model;
 
+import az.edu.ada.wm2.lab4.repository.ProductRepository;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -19,11 +21,20 @@ public class Product {
         this.price = price;
         this.expirationDate = expirationDate;
     }
-
     public Product(String productName, BigDecimal price, LocalDate expirationDate) {
         this.productName = productName;
         this.price = price;
         this.expirationDate = expirationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                ", expirationDate=" + expirationDate +
+                '}';
     }
 
     public UUID getId() {
