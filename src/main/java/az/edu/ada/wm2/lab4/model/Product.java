@@ -11,9 +11,15 @@ public class Product {
     private BigDecimal price;
     private LocalDate expirationDate;
 
-    public Product() {
-        this.id = UUID.randomUUID();
+    public Product(){}
+
+    public Product(UUID id, String productName, BigDecimal price, LocalDate expirationDate) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+        this.expirationDate = expirationDate;
     }
+
     public Product(String productName, BigDecimal price, LocalDate expirationDate) {
         this.productName = productName;
         this.price = price;
