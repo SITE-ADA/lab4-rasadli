@@ -2,12 +2,15 @@ package az.edu.ada.wm2.lab4.service;
 
 import az.edu.ada.wm2.lab4.model.Product;
 import az.edu.ada.wm2.lab4.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+
+@Service
 public class ProductServiceImpl implements ProductService{
     private final ProductRepository productRepository;
 
@@ -17,9 +20,11 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product createProduct(Product product) {
+        if (product.getId() == null) {
+            product.setId(UUID.randomUUID());
+        }
         return productRepository.save(product);
     }
-
     @Override
     public Product getProductById(UUID id) {
         return productRepository.findById(id)

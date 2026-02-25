@@ -1,9 +1,11 @@
 package az.edu.ada.wm2.lab4.repository;
 
 import az.edu.ada.wm2.lab4.model.Product;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class ProductRepositoryImpl implements ProductRepository {
 
     private final Map<UUID, Product> products = new HashMap<>();
